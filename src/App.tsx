@@ -1,8 +1,8 @@
 import { HashRouter as Router } from 'react-router-dom';
 import { Web3ReactProvider } from '@web3-react/core';
 import { ExternalProvider, JsonRpcFetchFunc, Web3Provider } from '@ethersproject/providers';
-import { Box, Container, Typography } from '@mui/material';
-import Wallet from './components/Wallet';
+import { Box, Container } from '@mui/material';
+import { Header } from './components';
 
 function getLibrary(provider: ExternalProvider | JsonRpcFetchFunc): Web3Provider {
   const library = new Web3Provider(provider);
@@ -15,10 +15,10 @@ const App = () => {
     <Web3ReactProvider getLibrary={getLibrary}>
       <Router>
         <Container maxWidth='xl'>
-          <Wallet />
-          <Typography variant='h4' component='h1' letterSpacing={0.5}>
+          <Header />
+          {/* <Typography variant='h4' component='h1' letterSpacing={0.5}>
             TalentLayer
-          </Typography>
+          </Typography> */}
           <Box
             display='flex'
             width='100%'

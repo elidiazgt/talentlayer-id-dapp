@@ -1,7 +1,7 @@
 import { useWeb3React } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
 import { Box, Typography } from '@mui/material';
-import ConnectWallet from './ConnectWallet';
+import { ConnectWallet } from '.';
 
 const Wallet = () => {
   const { active, account, error } = useWeb3React<Web3Provider>();
