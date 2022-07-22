@@ -1,9 +1,9 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Web3ReactProvider } from '@web3-react/core';
 import { Container } from '@mui/material';
 import getLibrary from './services/web3';
 import { Header } from './components';
-import { Home } from './pages';
+import { Home, ProofOfHumanity, ProofOfHumanityCheck } from './pages';
 
 const App = () => {
   return (
@@ -13,6 +13,8 @@ const App = () => {
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/proof-of-humanity' element={<ProofOfHumanity />} />
+            <Route path='/proof-of-humanity-check' element={<ProofOfHumanityCheck />} />
           </Routes>
         </Container>
       </Router>
