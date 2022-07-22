@@ -37,6 +37,14 @@
         "unnamedComponents": "arrow-function"
       }
     ],
+    "react/button-has-type": [
+      0,
+      {
+        "button": true,
+        "submit": true,
+        "reset": true
+      }
+    ],
     "func-names": ["error", "as-needed"],
     "no-unused-vars": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "off",

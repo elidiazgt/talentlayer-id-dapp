@@ -1,7 +1,7 @@
-/* eslint-disable react/button-has-type */
 import { useEffect, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
+import { Box, Button } from '@mui/material';
 
 import { useEagerConnect, useInactiveListener } from '../hooks';
 // eslint-disable-next-line import/no-named-as-default
@@ -22,9 +22,7 @@ const ConnectWallet = () => {
     activate(connectorList[connectorName]);
   };
 
-  const handleDisconnect = () => {
-    deactivate();
-  };
+  const handleDisconnect = () => deactivate();
 
   const handleRetry = () => {
     setIsConnecing(false);
@@ -32,30 +30,24 @@ const ConnectWallet = () => {
   };
 
   useEffect(() => {
-    if (active) {
-      setIsConnecing(false);
-    }
+    if (active) setIsConnecing(false);
   }, [active]);
 
   return (
-    <div className='connect-wallet'>
-      {active && (
-        <button className='button-disconnect' onClick={handleDisconnect}>
-          Disconnect Wallet
-        </button>
-      )}
+    <Box>
+      {active && <Button onClick={handleDisconnect}>Disconnect</Button>}
       {!active && (
         <>
-          <button onClick={handleClick('MetaMask')} disabled={isConnecing}>
-            Connect on MetaMask
-          </button>
-          <button onClick={handleClick('Portis')} disabled={isConnecing}>
-            Connect on Portis
-          </button>
+          <Button variant='outlined' onClick={handleClick('MetaMask')} disabled={isConnecing}>
+            Connect MetaMask
+          </Button>
+          <Button variant='outlined' onClick={handleClick('Portis')} disabled={isConnecing}>
+            Connect Portis
+          </Button>
         </>
       )}
-      {!active && error && <button onClick={handleRetry}>Retry</button>}
-    </div>
+      {!active && error && <Button onClick={handleRetry}>Retry</Button>}
+    </Box>
   );
 };
 
