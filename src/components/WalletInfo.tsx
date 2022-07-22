@@ -4,7 +4,7 @@ import { Web3Provider } from '@ethersproject/providers';
 const WalletInfo = () => {
   const { active, chainId, account, error } = useWeb3React<Web3Provider>();
   return (
-    <div className="wallet-info">
+    <div className='wallet-info'>
       <p>Create React Ethereum DApp</p>
       <p>active: {active.toString()}</p>
       {active && (
@@ -13,7 +13,7 @@ const WalletInfo = () => {
           <p>chainId: {chainId}</p>
         </div>
       )}
-      {error && <p className="text-error">error: {error.message}</p>}
+      {error && <p className='text-error'>error: {error.message}</p>}
     </div>
   );
 };

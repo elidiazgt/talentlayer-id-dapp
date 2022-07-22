@@ -1,8 +1,10 @@
+/* eslint-disable react/button-has-type */
 import { useEffect, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
 
 import { useEagerConnect, useInactiveListener } from '../hooks';
+// eslint-disable-next-line import/no-named-as-default
 import connectorList from '../lib/connectors';
 
 type ConnectorName = 'MetaMask' | 'Portis';
@@ -36,9 +38,9 @@ const ConnectWallet = () => {
   }, [active]);
 
   return (
-    <div className="connect-wallet">
+    <div className='connect-wallet'>
       {active && (
-        <button className="button-disconnect" onClick={handleDisconnect}>
+        <button className='button-disconnect' onClick={handleDisconnect}>
           Disconnect Wallet
         </button>
       )}

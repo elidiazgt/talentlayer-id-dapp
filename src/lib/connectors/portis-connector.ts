@@ -41,9 +41,7 @@ export class PortisConnector extends AbstractConnector {
   public portis: any;
 
   constructor({ dAppId, networks, config = {} }: PortisConnectorArguments) {
-    const chainIds = networks.map((n): number =>
-      typeof n === 'number' ? n : Number(n.chainId),
-    );
+    const chainIds = networks.map((n): number => (typeof n === 'number' ? n : Number(n.chainId)));
     super({ supportedChainIds: chainIds });
 
     this.dAppId = dAppId;
@@ -51,9 +49,7 @@ export class PortisConnector extends AbstractConnector {
     this.config = config;
 
     this.handleOnLogout = this.handleOnLogout.bind(this);
-    this.handleOnActiveWalletChanged = this.handleOnActiveWalletChanged.bind(
-      this,
-    );
+    this.handleOnActiveWalletChanged = this.handleOnActiveWalletChanged.bind(this);
     this.handleOnError = this.handleOnError.bind(this);
   }
 
@@ -71,7 +67,7 @@ export class PortisConnector extends AbstractConnector {
 
   public async activate(): Promise<ConnectorUpdate> {
     if (!this.portis) {
-      const Portis = await import('@portis/web3').then((m) => m?.default ?? m);
+      const Portis = await import('@portis/web3').then(m => m?.default ?? m);
       this.portis = new Portis(
         this.dAppId,
         typeof this.networks[0] === 'number'
@@ -116,15 +112,9 @@ export class PortisConnector extends AbstractConnector {
     this.portis.onError(() => {});
   }
 
-  public async changeNetwork(
-    newNetwork: number | Network,
-    isGasRelayEnabled?: boolean,
-  ) {
+  public async changeNetwork(newNetwork: number | Network, isGasRelayEnabled?: boolean) {
     if (typeof newNetwork === 'number') {
-      this.portis.changeNetwork(
-        chainIdToNetwork[newNetwork],
-        isGasRelayEnabled,
-      );
+      this.portis.changeNetwork(chainIdToNetwork[newNetwork], isGasRelayEnabled);
       this.emitUpdate({ chainId: newNetwork });
     } else {
       this.portis.changeNetwork(newNetwork, isGasRelayEnabled);
