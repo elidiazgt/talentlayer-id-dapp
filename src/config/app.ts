@@ -42,3 +42,10 @@ const chains: { [networkId in Network]: Config } = {
 export const config: Config = process.env.REACT_APP_NETWORK_ID
   ? chains[+process.env.REACT_APP_NETWORK_ID as Network]
   : chains[Network.LOCAL];
+
+export const SUBGRAPH_URL =
+  process.env.SUBGRAPH_URL ||
+  'https://api.thegraph.com/subgraphs/name/talentlayerid/talent-layer-id';
+
+export const projectId = process.env.REACT_APP_INFURA_ID || '';
+export const projectSecret = process.env.REACT_APP_INFURA_SECRET || '';

@@ -26,7 +26,7 @@ const Home = () => {
         justifyContent='center'
         alignItems='center'
         style={{ minHeight: '30vh' }}>
-        {talentLayerId !== '0' ? (
+        {talentLayerId ? (
           <Card sx={{ width: '30%', margin: '10px' }}>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography sx={{ py: 3, mx: 3, fontSize: 18 }}>
