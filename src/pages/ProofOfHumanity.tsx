@@ -36,7 +36,7 @@ const ProofOfHumanity = () => {
               Users without Proof of Humanity verification are able to participate in all aspects of
               TalentLayer except for expedited account recoveries.
             </Typography>
-            <Button variant='contained' size='large'>
+            <Button component={Link} to='/choose-handle' variant='contained' size='large'>
               Skip Verification
             </Button>
           </CardContent>
