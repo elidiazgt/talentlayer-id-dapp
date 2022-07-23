@@ -1,6 +1,6 @@
 import { Web3Provider } from '@ethersproject/providers';
+import { Contract } from '@ethersproject/contracts';
 import { useWeb3React } from '@web3-react/core';
-import { Contract, ethers } from 'ethers';
 import React, { useEffect, useMemo, useState } from 'react';
 import { config } from '../config/app';
 import TalentLayerIDABI from '../contracts/TalentLayerID.json';
@@ -16,7 +16,7 @@ const TalentLayerContext = React.createContext<{
   isRegisterToPoh: null,
 });
 
-const TalentLayerProvider: React.FC = props => {
+const TalentLayerProvider: React.FC = ({ children }) => {
   const { account, library } = useWeb3React<Web3Provider>();
   const [talentLayerId, setTalentLayerId] = useState<string | null>(null);
   const [talentLayerHandle, setTalentLayerHandle] = useState<string | null>(null);
@@ -50,7 +50,7 @@ const TalentLayerProvider: React.FC = props => {
     };
   }, [isRegisterToPoh, talentLayerId, talentLayerHandle]);
 
-  return <TalentLayerContext.Provider value={value}>{props.children}</TalentLayerContext.Provider>;
+  return <TalentLayerContext.Provider value={value}>{children}</TalentLayerContext.Provider>;
 };
 
 export { TalentLayerProvider };
