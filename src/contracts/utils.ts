@@ -1,4 +1,4 @@
-import { Contract, ethers } from 'ethers';
+import { Contract } from '@ethersproject/contracts';
 import { config } from '../config/app';
 import TalentLayerIDABI from './TalentLayerID.json';
 

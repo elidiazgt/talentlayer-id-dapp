@@ -47,6 +47,7 @@
     ],
     "func-names": ["error", "as-needed"],
     "no-unused-vars": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/no-named-as-default": 0,
     "import/no-cycle": ["off"],

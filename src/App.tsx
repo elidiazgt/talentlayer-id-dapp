@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Web3ReactProvider } from '@web3-react/core';
 import { Container } from '@mui/material';
+import { TalentLayerProvider } from './context/talentLayer';
 import getLibrary from './services/web3';
 import { Header } from './components';
 import {
@@ -12,7 +13,6 @@ import {
   ProofOfHumanity,
   ProofOfHumanityCheck,
 } from './pages';
-import { TalentLayerProvider } from './context/talentLayer';
 
 const App = () => {
   return (

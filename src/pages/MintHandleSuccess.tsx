@@ -1,5 +1,4 @@
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Button, Box, Grid, Card, CardContent, Typography } from '@mui/material';
 
 const MintHandleSuccess = () => {
