@@ -22,3 +22,10 @@ export type Review = {
   to: User;
   uri: string;
 };
+
+export enum Status {
+  Intialized = 'Intialized',
+  Confirmed = 'Confirmed',
+  Finished = 'Finished',
+  Rejected = 'Rejected',
+}

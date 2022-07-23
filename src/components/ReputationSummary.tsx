@@ -1,9 +1,11 @@
 // import { Link } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
+import { useUserJobs } from '../hooks';
 import JobCard from './JobCard';
 
 const ReputationSummary = ({ handle }: { handle: string | undefined }) => {
-  // TODO add jobs
+  const userJobs = useUserJobs();
+
   return (
     <Box
       display='flex'
@@ -20,7 +22,9 @@ const ReputationSummary = ({ handle }: { handle: string | undefined }) => {
         Explore your reputation summary below.
       </Typography>
 
-      <JobCard />
+      {userJobs.map(job => {
+        return <JobCard job={job} />;
+      })}
     </Box>
   );
 };
