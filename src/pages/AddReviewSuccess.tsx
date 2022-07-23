@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { Button, Box, Grid, Card, CardContent, Typography } from '@mui/material';
 import TalentLayerContext from '../context/talentLayer';
 
-const CreateJobSuccess = () => {
+const AddReviewSuccess = () => {
   const { talentLayerHandle } = useContext(TalentLayerContext);
   return (
     <Box display='flex' flexDirection='column' width='100%' alignItems='center' padding={10}>
       <Typography variant='h3' component='h1' letterSpacing={0.5} sx={{ p: 3 }} gutterBottom>
         Success!
       </Typography>
-      <Typography sx={{ py: 2, mx: 3, fontSize: 20 }}>Your Job has been submited!</Typography>
+      <Typography sx={{ py: 2, mx: 3, fontSize: 20 }}>Your review has been minted!</Typography>
       <Grid
         container
         direction='column'
@@ -33,4 +33,4 @@ const CreateJobSuccess = () => {
   );
 };
 
-export default CreateJobSuccess;
+export default AddReviewSuccess;
