@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import axios from 'axios';
-import { SUBGRAPH_URL } from '../config';
+import { SUBGRAPH_URL } from '../config/app';
 
 const processRequest = async (query: string): Promise<any> => {
   try {

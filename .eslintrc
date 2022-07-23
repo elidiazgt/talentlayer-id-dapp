@@ -24,6 +24,7 @@
   "plugins": ["@typescript-eslint", "jest", "react-hooks"],
   "ignorePatterns": ["setupTests.ts", "src/artifacts/**"],
   "rules": {
+    "prefer-template": 0,
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "react/prop-types": "off",
@@ -51,6 +52,7 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/no-named-as-default": 0,
     "import/no-cycle": ["off"],
+    "import/prefer-default-export": ["off"],
     "import/no-extraneous-dependencies": [
       "error",
       { "devDependencies": ["**/*.test.ts", "**/*.test.tsx"] }
