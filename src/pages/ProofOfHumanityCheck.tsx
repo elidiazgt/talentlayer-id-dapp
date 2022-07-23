@@ -46,8 +46,9 @@ const ProofOfHumanityCheck = () => {
           <Card sx={{ width: '30%', margin: '10px' }}>
             <CardContent sx={{ textAlign: 'center', minHeight: '15vh', pt: '5vh' }}>
               <Button
-                component={Link}
-                to='/proof-of-humanity-check'
+                component='a'
+                target='_blank'
+                href='https://app.proofofhumanity.id'
                 variant='contained'
                 size='large'>
                 Create a POH ID

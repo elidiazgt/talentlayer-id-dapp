@@ -9,7 +9,7 @@ const Header = () => {
         <CardMedia
           component='img'
           height='40'
-          image='talent-layer-light-40.png'
+          image='/talent-layer-light-40.png'
           title='TalentLayer logo'
         />
       </Link>

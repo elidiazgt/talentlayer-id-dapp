@@ -9,7 +9,7 @@ import { truncateAddress } from '../utils/index';
 
 const Wallet = () => {
   const { active, account, error } = useWeb3React<Web3Provider>();
-  const { isRegisterToPoh } = useContext(TalentLayerContext);
+  const { isRegisterToPoh, talentLayerHandle } = useContext(TalentLayerContext);
 
   return (
     <Box justifyContent='flex-end' flexDirection='row' alignItems='center' display='flex'>
@@ -21,6 +21,7 @@ const Wallet = () => {
             </Tooltip>
           )}
           <Typography variant='subtitle2' component='h5'>
+            {talentLayerHandle ? `${talentLayerHandle} - ` : ''}
             {truncateAddress(account ?? '')}
           </Typography>
         </Box>

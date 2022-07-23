@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Box, Button, Grid, Card, CardContent, Typography } from '@mui/material';
+import { useContext } from 'react';
+import TalentLayerContext from '../context/talentLayer';
 
 const Home = () => {
-  const handleExists = true; // TODO: fetch this via RPC and potentially store in context
-  const handle = 'michael';
+  const { talentLayerId, talentLayerHandle } = useContext(TalentLayerContext);
+
   return (
     <Box display='flex' flexDirection='column' width='100%' alignItems='center' padding={10}>
       <Typography variant='h3' component='h1' letterSpacing={0.5} sx={{ p: 3 }} gutterBottom>
@@ -24,7 +26,7 @@ const Home = () => {
         justifyContent='center'
         alignItems='center'
         style={{ minHeight: '30vh' }}>
-        {handleExists ? (
+        {talentLayerId !== '0' ? (
           <Card sx={{ width: '30%', margin: '10px' }}>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography sx={{ py: 3, mx: 3, fontSize: 18 }}>
@@ -32,7 +34,7 @@ const Home = () => {
               </Typography>
               <Button
                 component={Link}
-                to={`/admin-center/${handle}`}
+                to={`/admin-center/${talentLayerHandle}`}
                 variant='contained'
                 size='large'>
                 Access Admin Center

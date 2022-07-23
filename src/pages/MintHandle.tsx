@@ -1,18 +1,32 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Box, Grid, Card, CardContent, Typography } from '@mui/material';
+import { Alert, Box, Grid, Card, CardContent, Typography } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
+import { useWeb3React } from '@web3-react/core';
+import { Web3Provider } from '@ethersproject/providers';
+import { mint } from '../contracts/utils';
+import { useContext, useState } from 'react';
+import TalentLayerContext from '../context/talentLayer';
 
 const MintHandle = () => {
-  const { handle } = useParams<{ handle?: string }>();
+  const { account, library } = useWeb3React<Web3Provider>();
+  const { isRegisterToPoh } = useContext(TalentLayerContext);
+  const [isMinting, setIsMinting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const { handle } = useParams<{ handle: string }>();
   const navigate = useNavigate();
 
-  const mintHandle = () => {
+  const mintHandle = async () => {
     try {
-      // eslint-disable-next-line no-console
-      console.log('async function mint handle:', handle);
+      if (!handle) return;
+
+      setIsMinting(true);
+      await mint(library, account, handle, isRegisterToPoh);
       navigate(`/mint-handle-success/${handle}`);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err);
+      setIsMinting(false);
+      setError('Impossible to mint');
     }
   };
   return (
@@ -32,9 +46,18 @@ const MintHandle = () => {
         <Card sx={{ width: '30%', margin: '10px' }}>
           <CardContent sx={{ textAlign: 'center' }}>
             <Typography sx={{ py: 3, mx: 3, fontSize: 30 }}>{handle}</Typography>
-            <Button onClick={mintHandle} variant='contained' size='large'>
-              Mint Handle
-            </Button>
+            <LoadingButton
+              onClick={mintHandle}
+              variant='contained'
+              size='large'
+              loading={isMinting}>
+              {isMinting ? 'Minting...' : 'Mint Your TalentLayer ID'}
+            </LoadingButton>
+            {error && (
+              <Alert severity='error' sx={{ marginTop: '10px' }}>
+                {error}
+              </Alert>
+            )}
           </CardContent>
         </Card>
       </Grid>
