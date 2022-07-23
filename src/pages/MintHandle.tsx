@@ -1,12 +1,15 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Box, Grid, Card, CardContent, Typography } from '@mui/material';
 
 const MintHandle = () => {
   const { handle } = useParams<{ handle?: string }>();
+  const navigate = useNavigate();
+
   const mintHandle = () => {
     try {
       // eslint-disable-next-line no-console
       console.log('async function mint handle:', handle);
+      navigate(`/mint-handle-success/${handle}`);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err);
