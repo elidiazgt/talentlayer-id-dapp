@@ -1,14 +1,12 @@
-import { Web3Provider } from '@ethersproject/providers';
 import { LoadingButton } from '@mui/lab';
 import { Alert, Box, Card, CardContent, Grid, Typography } from '@mui/material';
-import { useWeb3React } from '@web3-react/core';
 import { useContext, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import TalentLayerContext from '../context/talentLayer';
 import { mint } from '../contracts/utils';
 
 const MintHandle = () => {
-  const { account, library } = useWeb3React<Web3Provider>();
+  const { signer } = useContext(TalentLayerContext);
   const { isRegisterToPoh } = useContext(TalentLayerContext);
   const [isMinting, setIsMinting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -17,10 +15,10 @@ const MintHandle = () => {
 
   const mintHandle = async () => {
     try {
-      if (!handle) return;
+      if (!handle || !signer) return;
 
       setIsMinting(true);
-      await mint(library, account, handle, isRegisterToPoh);
+      await mint(signer, handle, isRegisterToPoh);
       navigate(`/mint-handle-success/${handle}`);
     } catch (err) {
       // eslint-disable-next-line no-console
