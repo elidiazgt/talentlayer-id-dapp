@@ -8,6 +8,7 @@ import { LoadingButton } from '@mui/lab';
 import TalentLayerContext from '../context/talentLayer';
 import { createJobFromEmployer, createJobFromEmployee } from '../contracts/utils';
 import { useUsers } from '../hooks';
+import postToIPFS from '../services/ipfs';
 
 const CreateJob = () => {
   const { signer } = useContext(TalentLayerContext);
@@ -32,13 +33,12 @@ const CreateJob = () => {
     try {
       if (!signer) return;
       // eslint-disable-next-line no-console
-      console.log({ title, about, keywords, role, recipient });
       setIsPosting(true);
-      // TODO: async function post to IPFS and get URI
+      const uri = await postToIPFS(JSON.stringify({ title, about, keywords, role, recipient }));
       if (role === 'Client') {
-        await createJobFromEmployer(signer, recipient, 'tempURI');
+        await createJobFromEmployer(signer, recipient, uri);
       } else {
-        await createJobFromEmployee(signer, recipient, 'tempURI');
+        await createJobFromEmployee(signer, recipient, uri);
       }
       navigate(`/create-job-success`);
     } catch (err) {

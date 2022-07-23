@@ -56,6 +56,11 @@ const JobCard = ({ job }: IProps) => {
         <Typography variant='body2'>
           <strong>Description:</strong> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
           Blanditiis vitae provident, deleniti deserunt suscipit, placeat ipsa nostrum tempore.
+          <br />
+          <strong>Status:</strong> {job.status} <br />
+          <strong>Role:</strong> {job.employee.id === talentLayerId ? 'Employee' : 'Employer'}{' '}
+          <br />
+          <strong>Review:</strong> lorem ipsum <br />
         </Typography>
         <Typography variant='body2'>
           <strong>Status:</strong> {job.status}
