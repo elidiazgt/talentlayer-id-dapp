@@ -43,6 +43,24 @@ export const getJobs = (): Promise<any> => {
   {
     jobs {
       id
+      status
+      employer {
+        id
+        handle
+      }
+      employee {
+        id
+        handle
+      }
+      sender {
+        id
+        handle
+      }
+      recipient {
+        id
+        handle
+      }
+      uri
     }
   }
   `;
