@@ -6,6 +6,7 @@ import getLibrary from './services/web3';
 import { Header } from './components';
 import {
   AddReview,
+  AddReviewSuccess,
   Home,
   AdminCenter,
   ChooseHandle,
@@ -26,7 +27,7 @@ const App = () => {
             <Header />
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/admin-center/:handle' element={<AdminCenter />} />\
+              <Route path='/admin-center/:handle' element={<AdminCenter />} />
               <Route path='/create-job' element={<CreateJob />} />
               <Route path='/create-job-success' element={<CreateJobSuccess />} />
               <Route path='/choose-handle' element={<ChooseHandle />} />
@@ -34,7 +35,8 @@ const App = () => {
               <Route path='/mint-handle-success/:handle' element={<MintHandleSuccess />} />
               <Route path='/proof-of-humanity' element={<ProofOfHumanity />} />
               <Route path='/proof-of-humanity-check' element={<ProofOfHumanityCheck />} />
-              <Route path='/add-review/:jobId' element={<AddReview />} />\
+              <Route path='/add-review/:jobId' element={<AddReview />} />
+              <Route path='/add-review-success' element={<AddReviewSuccess />} />
             </Routes>
           </Container>
         </Router>

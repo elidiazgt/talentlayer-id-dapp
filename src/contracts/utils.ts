@@ -35,7 +35,7 @@ export const mint = async (
 
 export const createJobFromEmployer = async (
   signer: Signer,
-  employeeId: boolean,
+  employeeId: string,
   jobDataUri: string,
 ): Promise<string> => {
   const jobRegistry = new Contract(config.jobRegistryAddress, JobRegistry.abi, signer);
@@ -45,7 +45,7 @@ export const createJobFromEmployer = async (
 
 export const createJobFromEmployee = async (
   signer: Signer,
-  employeeId: boolean,
+  employeeId: string,
   jobDataUri: string,
 ): Promise<string> => {
   const jobRegistry = new Contract(config.jobRegistryAddress, JobRegistry.abi, signer);

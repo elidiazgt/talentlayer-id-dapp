@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { getUsers } from '../services/queries';
+import { User } from '../types';
 
-const useUsers = (): any => {
+const useUsers = (): { users: User[] } => {
   const [users, setUsers] = useState<any[]>([]);
 
   useEffect(() => {
