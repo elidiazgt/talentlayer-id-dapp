@@ -5,6 +5,7 @@ import getLibrary from './services/web3';
 import { Header } from './components';
 import {
   Home,
+  AdminCenter,
   ChooseHandle,
   MintHandle,
   MintHandleSuccess,
@@ -22,6 +23,7 @@ const App = () => {
             <Header />
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/admin-center/:handle' element={<AdminCenter />} />\
               <Route path='/choose-handle' element={<ChooseHandle />} />\
               <Route path='/mint-handle/:handle' element={<MintHandle />} />
               <Route path='/mint-handle-success/:handle' element={<MintHandleSuccess />} />
