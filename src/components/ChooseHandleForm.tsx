@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
+import { useWeb3React } from '@web3-react/core';
+import { Web3Provider } from '@ethersproject/providers';
 import { Button, Stack, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
-import { useWeb3React } from '@web3-react/core';
-import { Web3Provider } from '@ethersproject/providers';
 import { checkHandleUniqueness } from '../contracts/utils';
 
 const ChooseHandleForm = () => {
