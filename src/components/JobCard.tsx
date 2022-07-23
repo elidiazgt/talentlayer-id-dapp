@@ -7,14 +7,21 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import TalentLayerContext from '../context/talentLayer';
 import { confirmJob, finishJob } from '../contracts/utils';
+import { Job, Status } from '../types';
 
-const JobCard = () => {
-  const { signer } = useContext(TalentLayerContext);
+interface IProps {
+  job: Job;
+}
+
+const JobCard = ({ job }: IProps) => {
+  const { talentLayerId, signer } = useContext(TalentLayerContext);
+  const isInitiator: boolean = job.sender.id === talentLayerId;
+  console.log(job);
 
   const handleConfirmJob = async () => {
     try {
       if (!signer) return;
-      await confirmJob(signer, '9');
+      await confirmJob(signer, job.id);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err);
@@ -24,7 +31,7 @@ const JobCard = () => {
   const handleFinishJob = async () => {
     try {
       if (!signer) return;
-      await finishJob(signer, '9');
+      await finishJob(signer, job.id);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err);
@@ -32,28 +39,37 @@ const JobCard = () => {
   };
 
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ minWidth: 275, marginBottom: '20px' }}>
       <CardContent>
         <Typography variant='h4' component='div'>
           Job title
-          <Chip label='#1' size='small' sx={{ marginLeft: '5px' }} />
+          <Chip label={`#${job.id}`} size='small' sx={{ marginLeft: '5px' }} />
         </Typography>
         <Typography variant='body2'>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis vitae provident,
           deleniti deserunt suscipit, placeat ipsa nostrum tempore.
         </Typography>
+        <Typography variant='body2' sx={{ minWidth: 275, marginTop: '10px' }}>
+          Status: {job.status} <br />
+          Role: {job.employee.id === talentLayerId ? 'Employee' : 'Employer'} <br />
+        </Typography>
       </CardContent>
       <CardActions>
-        <Button size='small'>View transaction</Button>
-        <Button size='small' onClick={handleConfirmJob}>
-          Confirm Job
-        </Button>
-        <Button size='small' onClick={handleFinishJob}>
-          Finish Job
-        </Button>
-        <Button size='small' component={Link} to='/add-review/9'>
-          Create a review
-        </Button>
+        {!isInitiator && job.status === Status.Intialized && (
+          <Button size='small' onClick={handleConfirmJob}>
+            Confirm Job
+          </Button>
+        )}
+        {job.status === Status.Confirmed && (
+          <Button size='small' onClick={handleFinishJob}>
+            Finish Job
+          </Button>
+        )}
+        {job.status === Status.Finished && (
+          <Button size='small' component={Link} to='/add-review/9'>
+            Create a review
+          </Button>
+        )}
       </CardActions>
     </Card>
   );

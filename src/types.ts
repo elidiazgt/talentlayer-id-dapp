@@ -15,3 +15,10 @@ export type Job = {
   recipient: User;
   uri: string;
 };
+
+export enum Status {
+  Intialized = 'Intialized',
+  Confirmed = 'Confirmed',
+  Finished = 'Finished',
+  Rejected = 'Rejected',
+}
