@@ -14,9 +14,9 @@ export const fontFamily = [
 ].join(',');
 
 const PRIMARY = {
-  light: '#FEAA5C',
-  main: '#FF8802',
-  dark: '#DA6D21',
+  light: '#7ab720',
+  main: '#7ab720',
+  dark: '#7ab720',
   contrastText: '#FFFFFF',
 };
 
@@ -48,11 +48,11 @@ const palette = {
   warning: { ...WARNING },
   info: { ...INFO },
   // text: { primary: '#1C1616', secondary: '#B5B5C8' },
-  // background: {
-  //   paper: '#FFFFFF',
-  //   default: '#F9F9FC',
-  //   frosted: 'rgba(255, 255, 255, 0.18)',
-  // },
+  background: {
+    paper: '#262626',
+    default: '#000',
+    frosted: 'rgba(255, 255, 255, 0.18)',
+  },
 };
 
 const theme = createTheme({
