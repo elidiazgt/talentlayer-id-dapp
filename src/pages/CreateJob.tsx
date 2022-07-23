@@ -36,10 +36,10 @@ const CreateJob = () => {
       // TODO: async function post to IPFS and get URI
       if (role === 'Client') {
         console.log('create job as client');
-        await createJobFromEmployee(signer, recipient, 'tempURI');
+        await createJobFromEmployer(signer, recipient, 'tempURI');
       } else {
         console.log('create job as freelancer');
-        await createJobFromEmployer(signer, recipient, 'tempURI');
+        await createJobFromEmployee(signer, recipient, 'tempURI');
       }
 
       navigate(`/create-job-success`);
