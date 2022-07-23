@@ -12,7 +12,6 @@ import { useUsers } from '../hooks';
 const CreateJob = () => {
   const { signer } = useContext(TalentLayerContext);
   const { users } = useUsers();
-  console.log('CreateJob', { users });
 
   const navigate = useNavigate();
   const [isPosting, setIsPosting] = useState(false);

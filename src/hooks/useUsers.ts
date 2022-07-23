@@ -3,7 +3,7 @@ import { getUsers } from '../services/queries';
 import { User } from '../types';
 
 const useUsers = (): { users: User[] } => {
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
