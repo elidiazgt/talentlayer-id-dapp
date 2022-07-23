@@ -3,11 +3,14 @@ import { useWeb3React } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
 import { Button, Stack, TextField } from '@mui/material';
 import { useFormik } from 'formik';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { object, string } from 'yup';
+import TalentLayerContext from '../context/talentLayer';
 import { checkHandleUniqueness } from '../contracts/utils';
 
 const ChooseHandleForm = () => {
-  const { account, library } = useWeb3React<Web3Provider>();
+  const { signer } = useContext(TalentLayerContext);
   const navigate = useNavigate();
 
   const createHandle = async ({ handle }: { handle: string }): Promise<void> => {
@@ -33,7 +36,7 @@ const ChooseHandleForm = () => {
         .max(10)
         .required('handle is required')
         .test('checkHandleUniqueness', 'This handle already exist.', value =>
-          checkHandleUniqueness(library, account, value).then(isUnique => {
+          checkHandleUniqueness(signer, value).then(isUnique => {
             return isUnique;
           }),
         ),
