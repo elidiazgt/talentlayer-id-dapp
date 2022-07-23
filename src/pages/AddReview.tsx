@@ -1,8 +1,8 @@
 import { LoadingButton } from '@mui/lab';
-import { Alert, Box, Grid, Stack, TextField, Typography } from '@mui/material';
+import { Alert, Box, Stack, TextField, Typography } from '@mui/material';
 import { useFormik } from 'formik';
 import { useContext, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { number, object, string } from 'yup';
 import TalentLayerContext from '../context/talentLayer';
 import { addReview } from '../contracts/utils';
@@ -10,6 +10,7 @@ import { addReview } from '../contracts/utils';
 const AddReview = () => {
   const { signer } = useContext(TalentLayerContext);
   const { jobId } = useParams<{ jobId: string }>();
+  const navigate = useNavigate();
   const [isMinting, setIsMinting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,6 +22,7 @@ const AddReview = () => {
       // First post data to ipfs and get the CID
       // Then add review
       await addReview(signer, jobId, 'tempURI');
+      navigate(`/add-review-success`);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err);

@@ -8,3 +8,4 @@ export { default as MintHandleSuccess } from './MintHandleSuccess';
 export { default as ProofOfHumanity } from './ProofOfHumanity';
 export { default as ProofOfHumanityCheck } from './ProofOfHumanityCheck';
 export { default as AddReview } from './AddReview';
+export { default as AddReviewSuccess } from './AddReviewSuccess';
