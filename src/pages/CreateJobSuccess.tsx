@@ -10,7 +10,7 @@ const CreateJobSuccess = () => {
       <Typography variant='h3' component='h1' letterSpacing={0.5} sx={{ p: 3 }} gutterBottom>
         Success!
       </Typography>
-      <Typography sx={{ py: 2, mx: 3, fontSize: 20 }}>Your Job has been minted!</Typography>
+      <Typography sx={{ py: 2, mx: 3, fontSize: 20 }}>Your Job has been submited!</Typography>
       <Grid
         container
         direction='column'
