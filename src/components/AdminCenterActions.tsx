@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
 
 const AdminCenterActions = () => {
@@ -27,7 +27,7 @@ const AdminCenterActions = () => {
       <Typography variant='h5' component='h5' sx={{ p: 1, mt: 2 }}>
         Jobs
       </Typography>
-      <Button variant='contained' size='large' sx={{ my: 1 }}>
+      <Button component={Link} to='/create-job' variant='contained' size='large' sx={{ my: 1 }}>
         Create a Job
       </Button>
       <Button variant='contained' size='large' sx={{ my: 1 }}>
