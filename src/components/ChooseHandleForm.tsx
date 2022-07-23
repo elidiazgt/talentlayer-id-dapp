@@ -2,8 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Stack, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
+import { useWeb3React } from '@web3-react/core';
+import { Web3Provider } from '@ethersproject/providers';
+import { checkHandleUniqueness } from '../contracts/utils';
 
 const ChooseHandleForm = () => {
+  const { account, library } = useWeb3React<Web3Provider>();
   const navigate = useNavigate();
 
   const createHandle = async ({ handle }: { handle: string }): Promise<void> => {
@@ -24,8 +28,15 @@ const ChooseHandleForm = () => {
     enableReinitialize: true,
     onSubmit: createHandle,
     validationSchema: object({
-      handle: string().min(5).required('handle is required'),
-      // add async RPC call to check if handle is duplicated
+      handle: string()
+        .min(3)
+        .max(10)
+        .required('handle is required')
+        .test('checkHandleUniqueness', 'This handle already exist.', value =>
+          checkHandleUniqueness(library, account, value).then(isUnique => {
+            return isUnique;
+          }),
+        ),
     }),
   });
   const { errors, isValid, touched, handleChange, handleSubmit, values, handleBlur } = formik;
