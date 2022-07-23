@@ -1,5 +1,6 @@
 // import { Link } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
+import JobCard from './JobCard';
 
 const ReputationSummary = ({ handle }: { handle: string | undefined }) => {
   // TODO add jobs
@@ -18,6 +19,8 @@ const ReputationSummary = ({ handle }: { handle: string | undefined }) => {
         Your reputation is updated whenever someone you&apos;ve worked with leaves you a review!
         Explore your reputation summary below.
       </Typography>
+
+      <JobCard />
     </Box>
   );
 };

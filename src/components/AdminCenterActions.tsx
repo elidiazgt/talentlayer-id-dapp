@@ -17,9 +17,7 @@ const AdminCenterActions = () => {
       <Typography variant='h5' component='h5' sx={{ p: 1, mt: 2 }}>
         Reviews
       </Typography>
-      <Button variant='contained' size='large' sx={{ my: 1 }}>
-        Initiate A New Review
-      </Button>
+
       <Button variant='contained' size='large' sx={{ my: 1 }}>
         View Pending Reviews
       </Button>
