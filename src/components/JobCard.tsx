@@ -16,7 +16,6 @@ interface IProps {
 const JobCard = ({ job }: IProps) => {
   const { talentLayerId, signer } = useContext(TalentLayerContext);
   const isInitiator: boolean = job.sender.id === talentLayerId;
-  console.log(job);
 
   const handleConfirmJob = async () => {
     try {
@@ -45,13 +44,13 @@ const JobCard = ({ job }: IProps) => {
           Job title
           <Chip label={`#${job.id}`} size='small' sx={{ marginLeft: '5px' }} />
         </Typography>
-        <Typography variant='body2'>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis vitae provident,
-          deleniti deserunt suscipit, placeat ipsa nostrum tempore.
-        </Typography>
         <Typography variant='body2' sx={{ minWidth: 275, marginTop: '10px' }}>
-          Status: {job.status} <br />
-          Role: {job.employee.id === talentLayerId ? 'Employee' : 'Employer'} <br />
+          <strong>Description:</strong> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Blanditiis vitae provident, deleniti deserunt suscipit, placeat ipsa nostrum tempore.
+          <br />
+          <strong>Status:</strong> {job.status} <br />
+          <strong>Role:</strong> {job.employee.id === talentLayerId ? 'Employee' : 'Employer'}{' '} <br />
+          <strong>Review:</strong> lorem ipsum <br />
         </Typography>
       </CardContent>
       <CardActions>
