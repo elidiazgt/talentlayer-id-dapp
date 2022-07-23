@@ -89,6 +89,26 @@ export const getReviews = (): Promise<any> => {
   return processRequest(query);
 };
 
+export const getReviewsByJob = (jobId: string): Promise<any> => {
+  const query = `
+  {
+    reviews(where: { job: "${jobId}" }) {
+      id
+      job {
+        id
+        status
+      }
+      to {
+        id
+        handle
+      }
+      uri
+    }
+  }
+  `;
+  return processRequest(query);
+};
+
 export const getReview = (id: string): Promise<any> => {
   const query = `
   {
