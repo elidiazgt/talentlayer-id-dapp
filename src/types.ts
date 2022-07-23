@@ -1,7 +1,7 @@
 export type User = {
   id: string;
-  address?: string;
   handle: string;
+  address?: string;
   uri?: string;
   withPoh?: boolean;
 };
@@ -9,9 +9,16 @@ export type User = {
 export type Job = {
   id: string;
   status: string;
-  employer: User;
-  employee: User;
-  sender: User;
-  recipient: User;
+  employer?: User;
+  employee?: User;
+  sender?: User;
+  recipient?: User;
+  uri?: string;
+};
+
+export type Review = {
+  id: string;
+  job: Job;
+  to: User;
   uri: string;
 };
