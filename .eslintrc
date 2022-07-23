@@ -49,6 +49,7 @@
     "no-unused-vars": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/no-named-as-default": 0,
+    "import/no-cycle": ["off"],
     "import/no-extraneous-dependencies": [
       "error",
       { "devDependencies": ["**/*.test.ts", "**/*.test.tsx"] }
