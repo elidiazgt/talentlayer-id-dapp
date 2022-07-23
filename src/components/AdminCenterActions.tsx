@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
+import postToIpfs from '../services/ipfs';
 
 const AdminCenterActions = () => {
+  const handleClick = async () => {
+    console.log('click');
+    const hash = await postToIpfs('foo');
+    console.log('hash', hash);
+  };
   return (
     <Box
       pl={4}
@@ -18,7 +24,7 @@ const AdminCenterActions = () => {
         Reviews
       </Typography>
 
-      <Button variant='contained' size='large' sx={{ my: 1 }}>
+      <Button onClick={handleClick} variant='contained' size='large' sx={{ my: 1 }}>
         View Pending Reviews
       </Button>
 
