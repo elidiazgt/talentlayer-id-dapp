@@ -1,12 +1,16 @@
 import { Button, Stack, TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
 
 const ChooseHandleForm = () => {
+  const navigate = useNavigate();
+
   const createHandle = async ({ handle }: { handle: string }): Promise<void> => {
     try {
       // eslint-disable-next-line no-console
       console.log(handle);
+      navigate(`/mint-handle/${handle}`);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err);
