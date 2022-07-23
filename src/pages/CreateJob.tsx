@@ -1,6 +1,7 @@
+/* eslint-disable no-console */
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, MenuItem, Stack, TextField, Typography } from '@mui/material';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
 import TalentLayerContext from '../context/talentLayer';
@@ -8,8 +9,6 @@ import TalentLayerContext from '../context/talentLayer';
 const CreateJob = () => {
   const { talentLayerId, talentLayerHandle } = useContext(TalentLayerContext);
   const navigate = useNavigate();
-
-  console.log({ talentLayerId, talentLayerHandle });
   const createJob = async ({
     title,
     about,
@@ -23,14 +22,23 @@ const CreateJob = () => {
     role: string;
     recipient: string;
   }): Promise<void> => {
-    // try {
-    //   // eslint-disable-next-line no-console
-    //   console.log(handle);
-    //   navigate(`/mint-handle/${handle}`);
-    // } catch (err) {
-    //   // eslint-disable-next-line no-console
-    //   console.error(err);
-    // }
+    try {
+      // eslint-disable-next-line no-console
+      console.log({ title, about, keywords, role, recipient });
+
+      // TODO: async function post to IPFS and get URI
+
+      if (role === 'Client') {
+        console.log('create job as client');
+      } else {
+        console.log('create job as freelancer');
+      }
+
+      navigate(`/create-job-success`);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+    }
   };
 
   const formik = useFormik({
@@ -51,7 +59,8 @@ const CreateJob = () => {
       recipient: string().required('recipient is required'),
     }),
   });
-  const { errors, isValid, touched, handleChange, handleSubmit, values, handleBlur } = formik;
+  const { errors, isValid, touched, handleChange, handleSubmit, values, handleBlur, setTouched } =
+    formik;
 
   return (
     <Box display='flex' flexDirection='column' width='100%' alignItems='center' padding={10}>
@@ -106,14 +115,20 @@ const CreateJob = () => {
             id='role'
             name='role'
             label='role'
-            value={values.role}
-            onChange={handleChange}
-            error={Boolean(errors.role && touched.role)}
-            helperText={errors.role && touched.role ? errors.role : ''}
-            onBlur={handleBlur}
+            select
             required
             style={{ width: 500 }}
-          />
+            value={values.role}
+            onChange={e => {
+              handleChange(e);
+              setTouched({ ...touched, role: true });
+            }}>
+            {['Client', 'Freelancer'].map(role => (
+              <MenuItem key={role} value={role}>
+                {role}
+              </MenuItem>
+            ))}
+          </TextField>
 
           <TextField
             id='recipient'

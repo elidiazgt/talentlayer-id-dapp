@@ -9,6 +9,7 @@ import {
   AdminCenter,
   ChooseHandle,
   CreateJob,
+  CreateJobSuccess,
   MintHandle,
   MintHandleSuccess,
   ProofOfHumanity,
@@ -25,12 +26,13 @@ const App = () => {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/admin-center/:handle' element={<AdminCenter />} />\
+              <Route path='/create-job' element={<CreateJob />} />
+              <Route path='/create-job-success' element={<CreateJobSuccess />} />
               <Route path='/choose-handle' element={<ChooseHandle />} />
               <Route path='/mint-handle/:handle' element={<MintHandle />} />
               <Route path='/mint-handle-success/:handle' element={<MintHandleSuccess />} />
               <Route path='/proof-of-humanity' element={<ProofOfHumanity />} />
               <Route path='/proof-of-humanity-check' element={<ProofOfHumanityCheck />} />
-              <Route path='/create-job' element={<CreateJob />} />
             </Routes>
           </Container>
         </Router>
