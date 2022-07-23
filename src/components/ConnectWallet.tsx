@@ -37,11 +37,9 @@ const ConnectWallet = () => {
     <Box>
       {active && <Button onClick={handleDisconnect}>Disconnect</Button>}
       {!active && (
-        <>
-          <Button variant='outlined' onClick={handleClick('MetaMask')} disabled={isConnecing}>
-            Connect MetaMask
-          </Button>
-        </>
+        <Button variant='outlined' onClick={handleClick('MetaMask')} disabled={isConnecing}>
+          Connect MetaMask
+        </Button>
       )}
       {!active && error && <Button onClick={handleRetry}>Retry</Button>}
     </Box>

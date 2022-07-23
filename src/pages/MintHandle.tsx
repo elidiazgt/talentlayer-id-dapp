@@ -1,11 +1,11 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { Alert, Box, Grid, Card, CardContent, Typography } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
-import { useWeb3React } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
-import { mint } from '../contracts/utils';
+import { LoadingButton } from '@mui/lab';
+import { Alert, Box, Card, CardContent, Grid, Typography } from '@mui/material';
+import { useWeb3React } from '@web3-react/core';
 import { useContext, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import TalentLayerContext from '../context/talentLayer';
+import { mint } from '../contracts/utils';
 
 const MintHandle = () => {
   const { account, library } = useWeb3React<Web3Provider>();
