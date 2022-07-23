@@ -9,9 +9,9 @@ export type User = {
 export type Job = {
   id: string;
   status: string;
-  employer?: User;
-  employee?: User;
-  sender?: User;
+  employer: User;
+  employee: User;
+  sender: User;
   recipient?: User;
   uri?: string;
 };
