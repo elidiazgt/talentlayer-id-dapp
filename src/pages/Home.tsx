@@ -5,15 +5,16 @@ const Home = () => {
   return (
     <Box display='flex' flexDirection='column' width='100%' alignItems='center' padding={10}>
       <Typography variant='h3' component='h1' letterSpacing={0.5} sx={{ p: 3 }} gutterBottom>
-        Independent Freelancer Reputation Tool
+        TalentLayer Indie
       </Typography>
       <Typography sx={{ py: 2, mx: 3, fontSize: 20 }}>
-        TalentLayer is a decentralized, self-owned freelancer reputation system. Own your reputation
-        and leverage it across many freelancing marketplaces.
+        Onboard your clients to TalentLayer Indie, leave mutual reviews, and grow your reputation.
       </Typography>
       <Typography sx={{ py: 2, mx: 3, fontSize: 20 }}>
-        The Indie Freelancer Reputation Tool allows independent freelancers and their clients to
-        write mutual reviews for one another, indepdent of any freelance marketplace.
+        TalentLayer Indie is a reputation tool for independent freelancers. Similar to how you can
+        build up a reputation over time by completing work and receiving reviews on freelancing
+        platforms like Upwork or Freelancer.com, now you and your independent clients can create
+        verified reviews to signal your trustworthiness with prospective clients.
       </Typography>
       <Grid
         container
