@@ -12,11 +12,15 @@ const processRequest = async (query: string): Promise<any> => {
   }
 };
 
-export const getIds = (): Promise<any> => {
+export const getUsers = (): Promise<any> => {
   const query = `
   {
-    ids {
+    users {
       id
+      address
+      uri
+      handle
+      withPoh
     }
   }
   `;

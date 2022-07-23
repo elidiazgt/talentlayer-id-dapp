@@ -5,9 +5,12 @@ import { Box, Button, MenuItem, Stack, TextField, Typography } from '@mui/materi
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
 import TalentLayerContext from '../context/talentLayer';
+import { useUsers } from '../hooks';
 
 const CreateJob = () => {
   const { talentLayerId, talentLayerHandle } = useContext(TalentLayerContext);
+  const { users } = useUsers();
+  console.log('CreateJob', { users });
   const navigate = useNavigate();
   const createJob = async ({
     title,
