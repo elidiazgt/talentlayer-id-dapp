@@ -5,6 +5,7 @@ import { TalentLayerProvider } from './context/talentLayer';
 import getLibrary from './services/web3';
 import { Header } from './components';
 import {
+  AddReview,
   Home,
   AdminCenter,
   ChooseHandle,
@@ -29,6 +30,7 @@ const App = () => {
               <Route path='/mint-handle-success/:handle' element={<MintHandleSuccess />} />
               <Route path='/proof-of-humanity' element={<ProofOfHumanity />} />
               <Route path='/proof-of-humanity-check' element={<ProofOfHumanityCheck />} />
+              <Route path='/add-review/:jobId' element={<AddReview />} />\
             </Routes>
           </Container>
         </Router>

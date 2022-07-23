@@ -27,6 +27,7 @@ const MintHandle = () => {
       setError('Impossible to mint');
     }
   };
+
   return (
     <Box display='flex' flexDirection='column' width='100%' alignItems='center' padding={10}>
       <Typography variant='h3' component='h1' letterSpacing={0.5} sx={{ p: 3 }} gutterBottom>
