@@ -7,9 +7,13 @@ import { object, string } from 'yup';
 import { LoadingButton } from '@mui/lab';
 import TalentLayerContext from '../context/talentLayer';
 import { createJobFromEmployer, createJobFromEmployee } from '../contracts/utils';
+import { useUsers } from '../hooks';
 
 const CreateJob = () => {
-  const { signer, talentLayerId, talentLayerHandle } = useContext(TalentLayerContext);
+  const { signer } = useContext(TalentLayerContext);
+  const { users } = useUsers();
+  console.log('CreateJob', { users });
+
   const navigate = useNavigate();
   const [isPosting, setIsPosting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -28,20 +32,15 @@ const CreateJob = () => {
   }): Promise<void> => {
     try {
       if (!signer) return;
-
       // eslint-disable-next-line no-console
       console.log({ title, about, keywords, role, recipient });
-
       setIsPosting(true);
       // TODO: async function post to IPFS and get URI
       if (role === 'Client') {
-        console.log('create job as client');
         await createJobFromEmployer(signer, recipient, 'tempURI');
       } else {
-        console.log('create job as freelancer');
         await createJobFromEmployee(signer, recipient, 'tempURI');
       }
-
       navigate(`/create-job-success`);
     } catch (err) {
       // eslint-disable-next-line no-console
@@ -144,14 +143,20 @@ const CreateJob = () => {
             id='recipient'
             name='recipient'
             label='recipient'
-            value={values.recipient}
-            onChange={handleChange}
-            error={Boolean(errors.recipient && touched.recipient)}
-            helperText={errors.recipient && touched.recipient ? errors.recipient : ''}
-            onBlur={handleBlur}
+            select
             required
             style={{ width: 500 }}
-          />
+            value={values.recipient}
+            onChange={e => {
+              handleChange(e);
+              setTouched({ ...touched, recipient: true });
+            }}>
+            {users.map(user => (
+              <MenuItem key={user.id} value={user.id}>
+                {user.handle}
+              </MenuItem>
+            ))}
+          </TextField>
 
           <Stack direction='row' justifyContent='center'>
             <LoadingButton
