@@ -11,23 +11,26 @@ import {
   ProofOfHumanity,
   ProofOfHumanityCheck,
 } from './pages';
+import { TalentLayerProvider } from './context/talentLayer';
 
 const App = () => {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <Router>
-        <Container maxWidth='xl'>
-          <Header />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/choose-handle' element={<ChooseHandle />} />\
-            <Route path='/mint-handle/:handle' element={<MintHandle />} />
-            <Route path='/mint-handle-success/:handle' element={<MintHandleSuccess />} />
-            <Route path='/proof-of-humanity' element={<ProofOfHumanity />} />
-            <Route path='/proof-of-humanity-check' element={<ProofOfHumanityCheck />} />
-          </Routes>
-        </Container>
-      </Router>
+      <TalentLayerProvider>
+        <Router>
+          <Container maxWidth='xl'>
+            <Header />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/choose-handle' element={<ChooseHandle />} />\
+              <Route path='/mint-handle/:handle' element={<MintHandle />} />
+              <Route path='/mint-handle-success/:handle' element={<MintHandleSuccess />} />
+              <Route path='/proof-of-humanity' element={<ProofOfHumanity />} />
+              <Route path='/proof-of-humanity-check' element={<ProofOfHumanityCheck />} />
+            </Routes>
+          </Container>
+        </Router>
+      </TalentLayerProvider>
     </Web3ReactProvider>
   );
 };

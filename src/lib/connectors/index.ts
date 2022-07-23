@@ -2,9 +2,9 @@ import { InjectedConnector } from '@web3-react/injected-connector';
 
 import { PortisConnector } from './portis-connector';
 
-type SupportChainId = 1 | 3 | 4 | 5 | 42 | 137 | 80001;
+type SupportChainId = 1 | 3 | 4 | 5 | 42 | 137 | 80001 | 1337 | 100;
 
-const supportChainIdList: SupportChainId[] = [1, 3, 4, 5, 42, 137, 80001];
+const supportChainIdList: SupportChainId[] = [1, 3, 4, 5, 42, 137, 80001, 1337, 100];
 
 export const injected = new InjectedConnector({
   supportedChainIds: supportChainIdList,
