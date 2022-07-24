@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
 
-const AdminCenterActions = () => {
+const SearchReputationsActions = () => {
   return (
     <Box
       pl={4}
@@ -10,11 +10,11 @@ const AdminCenterActions = () => {
       width='100%'
       alignItems='flex-start'
       justifyContent='flex-start'>
-      <Button component={Link} to='/create-job' variant='outlined' size='large' sx={{ my: 1 }}>
-        Create a Job
+      <Button variant='outlined' size='large' sx={{ my: 1 }}>
+        Search Reputations
       </Button>
     </Box>
   );
 };
 
-export default AdminCenterActions;
+export default SearchReputationsActions;

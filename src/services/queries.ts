@@ -89,6 +89,15 @@ export const getReviews = (): Promise<any> => {
   {
     reviews {
       id
+      job {
+        id
+        status
+      }
+      to {
+        id
+        handle
+      }
+      uri
     }
   }
   `;

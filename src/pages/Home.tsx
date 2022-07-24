@@ -79,7 +79,11 @@ const Home = () => {
             <Typography sx={{ pb: 2, fontSize: 14 }}>
               View the verified reviews of someone you want to work with.
             </Typography>
-            <Button variant='outlined' size='large'>
+            <Button
+              component={Link}
+              to={`/search-reputations-center`}
+              variant='outlined'
+              size='large'>
               Search Reputations
             </Button>
           </CardContent>
