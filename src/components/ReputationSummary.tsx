@@ -22,8 +22,8 @@ const ReputationSummary = ({ handle }: { handle: string | undefined }) => {
         Explore your reputation summary below.
       </Typography>
 
-      {userJobs.map(job => {
-        return <JobCard job={job} />;
+      {userJobs.map((job, index) => {
+        return <JobCard key={index} job={job} />;
       })}
     </Box>
   );

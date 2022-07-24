@@ -24,7 +24,7 @@ export type Review = {
 };
 
 export enum Status {
-  Intialized = 'Intialized',
+  Initialized = 'Initialized',
   Confirmed = 'Confirmed',
   Finished = 'Finished',
   Rejected = 'Rejected',
