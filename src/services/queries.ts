@@ -67,35 +67,6 @@ export const getJob = (id: string): Promise<any> => {
   return processRequest(query);
 };
 
-export const getJobsByUser = (userId: string): Promise<any> => {
-  const query = `
-  {
-    jobs(where: { job: "${userId}" }, orderBy: id, orderDirection: desc) {
-      id
-      status
-      employer {
-        id
-        handle
-      }
-      employee {
-        id
-        handle
-      }
-      sender {
-        id
-        handle
-      }
-      recipient {
-        id
-        handle
-      }
-      uri
-    }
-  }
-  `;
-  return processRequest(query);
-};
-
 export const getReviews = (): Promise<any> => {
   const query = `
   {
