@@ -27,6 +27,23 @@ export const getUsers = (): Promise<any> => {
   return processRequest(query);
 };
 
+export const getUserById = (id: string): Promise<any> => {
+  const query = `
+  {
+    user(id: "${id}") {
+      id
+      address
+      uri
+      handle
+      withPoh
+      rating
+      numReviews
+    }
+  }
+  `;
+  return processRequest(query);
+};
+
 export const getJobs = (): Promise<any> => {
   const query = `
   {
