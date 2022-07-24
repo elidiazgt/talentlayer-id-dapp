@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Rating, Typography } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import useReviewDetails from '../hooks/useReviewDetails';
@@ -18,7 +18,9 @@ const ReviewCard = ({ review }: IProps) => {
           Review #{review.id} to {review.to.handle}
         </Typography>
         <Typography variant='body2'>Content: {reviewDetails?.content ?? '-'}</Typography>
-        <Typography variant='body2'>Rating: {reviewDetails?.rating ?? '-'}</Typography>
+        {reviewDetails?.rating && (
+          <Rating name='read-only' value={parseInt(reviewDetails.rating)} readOnly />
+        )}
       </CardContent>
     </Card>
   );
