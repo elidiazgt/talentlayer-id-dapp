@@ -48,11 +48,11 @@ const palette = {
   warning: { ...WARNING },
   info: { ...INFO },
   // text: { primary: '#1C1616', secondary: '#B5B5C8' },
-  background: {
-    paper: '#262626',
-    default: '#000',
-    frosted: 'rgba(255, 255, 255, 0.18)',
-  },
+  // background: {
+  // paper: '#444444',
+  // default: '#000',
+  // frosted: 'rgba(255, 255, 255, 0.18)',
+  // },
 };
 
 const theme = createTheme({
