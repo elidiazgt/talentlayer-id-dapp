@@ -88,8 +88,8 @@ const JobCard = ({ job }: IProps) => {
             Finish Job
           </Button>
         )}
-        {job.status === Status.Finished && !hasReviewed && (
-          <Button size='small' component={Link} to='/add-review/9'>
+        {job.status === Status.Finished && hasReviewed && (
+          <Button size='small' component={Link} to={`/add-review/${job.id}`}>
             Create a review
           </Button>
         )}
