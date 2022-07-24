@@ -1,4 +1,4 @@
-import { Chip, Typography } from '@mui/material';
+import { ButtonGroup, Chip, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import TalentLayerContext from '../context/talentLayer';
-import { confirmJob, finishJob } from '../contracts/utils';
+import { confirmJob, finishJob, rejectJob } from '../contracts/utils';
 import { useReviewsByJob } from '../hooks';
 import useJobDetails from '../hooks/useJobDetails';
 import { Job, Status } from '../types';
@@ -32,6 +32,16 @@ const JobCard = ({ job }: IProps) => {
     try {
       if (!signer) return;
       await confirmJob(signer, job.id);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+    }
+  };
+
+  const handleRejectJob = async () => {
+    try {
+      if (!signer) return;
+      await rejectJob(signer, job.id);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err);
@@ -78,9 +88,14 @@ const JobCard = ({ job }: IProps) => {
       </CardContent>
       <CardActions>
         {!isInitiator && job.status === Status.Initialized && (
-          <Button size='small' onClick={handleConfirmJob}>
-            Confirm Job
-          </Button>
+          <ButtonGroup variant='contained'>
+            <Button size='small' onClick={handleConfirmJob}>
+              Confirm Job
+            </Button>
+            <Button size='small' onClick={handleRejectJob}>
+              Reject Job
+            </Button>
+          </ButtonGroup>
         )}
         {job.status === Status.Confirmed && (
           <Button size='small' onClick={handleFinishJob}>
