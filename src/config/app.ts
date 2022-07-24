@@ -44,7 +44,7 @@ export const config: Config = process.env.REACT_APP_NETWORK_ID
   : chains[Network.LOCAL];
 
 export const SUBGRAPH_URL =
-  process.env.SUBGRAPH_URL ||
+  process.env.REACT_APP_SUBGRAPH_URL ||
   'https://api.thegraph.com/subgraphs/name/talentlayerid/talent-layer-id';
 
 export const projectId = process.env.REACT_APP_INFURA_ID || '';

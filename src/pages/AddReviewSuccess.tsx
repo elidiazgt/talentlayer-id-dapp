@@ -22,7 +22,7 @@ const AddReviewSuccess = () => {
             <Button
               component={Link}
               to={`/admin-center/${talentLayerHandle}`}
-              variant='contained'
+              variant='outlined'
               size='large'>
               Access Admin Center
             </Button>

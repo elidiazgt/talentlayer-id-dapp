@@ -66,7 +66,7 @@ const ChooseHandleForm = () => {
 
         <Stack direction='row' justifyContent='center'>
           <Button
-            variant='contained'
+            variant='outlined'
             type='submit'
             size='large'
             disabled={!isValid || Object.keys(touched).length === 0}>

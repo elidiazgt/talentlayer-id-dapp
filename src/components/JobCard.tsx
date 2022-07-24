@@ -88,7 +88,7 @@ const JobCard = ({ job }: IProps) => {
       </CardContent>
       <CardActions>
         {!isInitiator && job.status === Status.Initialized && (
-          <ButtonGroup variant='contained'>
+          <ButtonGroup variant='outlined'>
             <Button size='small' onClick={handleConfirmJob}>
               Confirm Job
             </Button>

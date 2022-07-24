@@ -87,7 +87,7 @@ const AddReview = () => {
 
           <Stack direction='row' justifyContent='center'>
             <LoadingButton
-              variant='contained'
+              variant='outlined'
               type='submit'
               size='large'
               disabled={!isValid || Object.keys(touched).length === 0}>
