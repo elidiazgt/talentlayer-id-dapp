@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { number, object, string } from 'yup';
 import TalentLayerContext from '../context/talentLayer';
 import { addReview } from '../contracts/utils';
+import postToIPFS from '../services/ipfs';
 
 const AddReview = () => {
   const { signer } = useContext(TalentLayerContext);
@@ -14,14 +15,13 @@ const AddReview = () => {
   const [isMinting, setIsMinting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleAddReview = async ({ review, rating }: { review: string; rating: number }) => {
+  const handleAddReview = async ({ content, rating }: { content: string; rating: number }) => {
     try {
       if (!jobId || !signer) return;
 
       setIsMinting(true);
-      // First post data to ipfs and get the CID
-      // Then add review
-      await addReview(signer, jobId, 'tempURI');
+      const uri = await postToIPFS(JSON.stringify({ content, rating }));
+      await addReview(signer, jobId, uri);
       navigate(`/add-review-success`);
     } catch (err) {
       // eslint-disable-next-line no-console
@@ -33,13 +33,13 @@ const AddReview = () => {
 
   const formik = useFormik({
     initialValues: {
-      review: '',
+      content: '',
       rating: 3,
     },
     enableReinitialize: true,
     onSubmit: handleAddReview,
     validationSchema: object({
-      review: string().required('review is required'),
+      content: string().required('content is required'),
       rating: number().required('rating is required'),
     }),
   });
@@ -53,13 +53,13 @@ const AddReview = () => {
       <form onSubmit={handleSubmit}>
         <Stack spacing={2} mt={2}>
           <TextField
-            id='review'
-            name='review'
-            label='review'
-            value={values.review}
+            id='content'
+            name='content'
+            label='content'
+            value={values.content}
             onChange={handleChange}
-            error={Boolean(errors.review && touched.review)}
-            helperText={errors.review && touched.review ? errors.review : ''}
+            error={Boolean(errors.content && touched.content)}
+            helperText={errors.content && touched.content ? errors.content : ''}
             onBlur={handleBlur}
             multiline
             rows={4}
