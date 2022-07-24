@@ -9,6 +9,10 @@ const ProofOfHumanityCheck = () => {
     return null;
   }
 
+  const refresh = () => {
+    window.location.reload();
+  };
+
   return (
     <Box display='flex' flexDirection='column' width='100%' alignItems='center' padding={10}>
       <Typography variant='h3' component='h1' letterSpacing={0.5} sx={{ p: 3 }} gutterBottom>
@@ -57,14 +61,15 @@ const ProofOfHumanityCheck = () => {
           </Card>
           <Card sx={{ width: '30%', margin: '10px' }}>
             <CardContent sx={{ textAlign: 'center', minHeight: '15vh', pt: '5vh' }}>
-              <Button variant='outlined' size='large'>
+              <Button variant='outlined' size='large' onClick={refresh}>
                 Check Again
               </Button>
             </CardContent>
           </Card>
+
           <Card sx={{ width: '30%', margin: '10px' }}>
             <CardContent sx={{ textAlign: 'center', minHeight: '15vh', pt: '5vh' }}>
-              <Button variant='outlined' size='large'>
+              <Button variant='outlined' size='large' component={Link} to='/choose-handle'>
                 Progress with No POH ID
               </Button>
             </CardContent>

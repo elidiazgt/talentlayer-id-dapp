@@ -17,7 +17,7 @@ const ChooseHandle = () => {
         justifyContent='center'
         alignItems='center'
         style={{ minHeight: '30vh' }}>
-        <Card sx={{ width: '30%', margin: '10px' }}>
+        <Card sx={{ width: '40%', margin: '10px' }}>
           <CardContent sx={{ textAlign: 'center' }}>
             <ChooseHandleForm />
           </CardContent>

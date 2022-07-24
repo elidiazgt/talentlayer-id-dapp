@@ -92,7 +92,7 @@ const JobCard = ({ job }: IProps) => {
             <Button size='small' onClick={handleConfirmJob}>
               Confirm Job
             </Button>
-            <Button size='small' onClick={handleRejectJob}>
+            <Button size='small' onClick={handleRejectJob} color='error'>
               Reject Job
             </Button>
           </ButtonGroup>

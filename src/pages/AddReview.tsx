@@ -21,7 +21,7 @@ const AddReview = () => {
 
       setIsMinting(true);
       const uri = await postToIPFS(JSON.stringify({ content, rating }));
-      await addReview(signer, jobId, uri);
+      await addReview(signer, jobId, rating, uri);
       navigate(`/add-review-success`);
     } catch (err) {
       // eslint-disable-next-line no-console

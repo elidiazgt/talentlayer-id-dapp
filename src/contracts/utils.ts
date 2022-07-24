@@ -71,6 +71,7 @@ export const rejectJob = async (signer: Signer, jobId: string): Promise<void> =>
 export const addReview = async (
   signer: Signer,
   jobId: string,
+  rating: number,
   reviewUri: string,
 ): Promise<void> => {
   const talentLayerReview = new Contract(
@@ -78,5 +79,5 @@ export const addReview = async (
     TalentLayerReview.abi,
     signer,
   );
-  await talentLayerReview.addReview(jobId, reviewUri);
+  await talentLayerReview.addReview(jobId, reviewUri, rating);
 };

@@ -4,6 +4,8 @@ export type User = {
   address: string;
   uri: string;
   withPoh: boolean;
+  rating: string;
+  numReviews: string;
 };
 
 export type Job = {

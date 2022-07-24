@@ -25,10 +25,10 @@ const local = {
 const gnosis = {
   networkId: Network.GNOSIS,
   rpcUrl: `https://rpc.ankr.com/gnosis`,
-  talentLayerIdAddress: '0xfC36a323D56A041011b5c2b537EA809e2AB7C8b7',
-  jobRegistryAddress: '0xa0ba381942EE16CAbf901f831A8C5B722C907263',
-  talentLayerReviewAddress: '0x67E3Aa6F076445197DfF91e0E776588FE09951aD',
-  proofOfHumanityAddress: '0x286cAf49975bACc6D0E80b52c8464fb1108F80fd',
+  talentLayerIdAddress: '0x45Cd9E9C04d0701b23089C44Faa807932996717E',
+  jobRegistryAddress: '0xFAe97514c8e94501E66F0AEf84E4Cccb7eb2EB84',
+  talentLayerReviewAddress: '0x8685C7359DeE31703a1f47F8dabad7879148cFCf',
+  proofOfHumanityAddress: '0xc7729F499f3D81643597a1e1666E9b6F8D702F8D',
 };
 
 const mainnet = {} as Config;

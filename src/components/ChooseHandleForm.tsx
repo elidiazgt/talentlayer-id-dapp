@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { object, string } from 'yup';
 import TalentLayerContext from '../context/talentLayer';
 import { checkHandleUniqueness } from '../contracts/utils';
+import { generateRandomString } from '../utils';
 
 const ChooseHandleForm = () => {
   const { signer } = useContext(TalentLayerContext);
@@ -29,7 +30,7 @@ const ChooseHandleForm = () => {
     onSubmit: createHandle,
     validationSchema: object({
       handle: string()
-        .min(3)
+        .min(2)
         .max(10)
         .required('handle is required')
         .test('checkHandleUniqueness', 'This handle already exist.', value =>
@@ -47,13 +48,20 @@ const ChooseHandleForm = () => {
         <TextField
           id='handle'
           name='handle'
-          label='handle'
+          label='Choose your handle'
           value={values.handle}
           onChange={handleChange}
           error={Boolean(errors.handle && touched.handle)}
           helperText={errors.handle && touched.handle ? errors.handle : ''}
           onBlur={handleBlur}
           required
+        />
+
+        <TextField
+          disabled
+          id='recovery'
+          label='Write down your recovery passphrase'
+          defaultValue={generateRandomString(18)}
         />
 
         <Stack direction='row' justifyContent='center'>
