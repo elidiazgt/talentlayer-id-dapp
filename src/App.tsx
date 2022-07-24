@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Web3ReactProvider } from '@web3-react/core';
 import { Container } from '@mui/material';
 import { TalentLayerProvider } from './context/talentLayer';
