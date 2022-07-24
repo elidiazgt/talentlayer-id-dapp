@@ -19,7 +19,7 @@ const ReviewCard = ({ review }: IProps) => {
         </Typography>
         <Typography variant='body2'>Content: {reviewDetails?.content ?? '-'}</Typography>
         {reviewDetails?.rating && (
-          <Rating name='read-only' value={parseInt(reviewDetails.rating)} readOnly />
+          <Rating name='read-only' value={parseInt(reviewDetails.rating, 10)} readOnly />
         )}
       </CardContent>
     </Card>
