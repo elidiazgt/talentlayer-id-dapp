@@ -15,3 +15,6 @@ export { default as CreateJobSuccess } from './CreateJobSuccess';
 // Reviews
 export { default as AddReview } from './AddReview';
 export { default as AddReviewSuccess } from './AddReviewSuccess';
+
+// Clients and Freelancers
+export { default as SearchReputationsCenter } from './SearchReputationsCenter';

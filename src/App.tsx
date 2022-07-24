@@ -16,6 +16,7 @@ import {
   MintHandleSuccess,
   ProofOfHumanity,
   ProofOfHumanityCheck,
+  SearchReputationsCenter,
 } from './pages';
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
               <Route path='/proof-of-humanity-check' element={<ProofOfHumanityCheck />} />
               <Route path='/add-review/:jobId' element={<AddReview />} />
               <Route path='/add-review-success' element={<AddReviewSuccess />} />
+              <Route path='/search-reputations-center' element={<SearchReputationsCenter />} />
             </Routes>
           </Container>
         </Router>
