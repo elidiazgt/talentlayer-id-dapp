@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import TalentLayerContext from '../context/talentLayer';
 import { confirmJob, finishJob } from '../contracts/utils';
 import { useReviewsByJob } from '../hooks';
+import useJobDetails from '../hooks/useJobDetails';
 import { Job, Status } from '../types';
 import ReviewCard from './ReviewCard';
 
@@ -18,6 +19,7 @@ interface IProps {
 const JobCard = ({ job }: IProps) => {
   const { talentLayerId, signer } = useContext(TalentLayerContext);
   const { reviews } = useReviewsByJob(job.id);
+  const jobDetails = useJobDetails(job.uri);
   const isInitiator: boolean = job.sender.id === talentLayerId;
   const hasReviewed = !!reviews.find(review => {
     if (review.to.id !== talentLayerId) {
@@ -47,20 +49,17 @@ const JobCard = ({ job }: IProps) => {
   };
 
   return (
-    <Card sx={{ minWidth: 275, marginBottom: '20px' }}>
+    <Card sx={{ minWidth: '100%', marginBottom: '20px' }}>
       <CardContent>
         <Typography variant='h4' component='div'>
-          Job title
+          {jobDetails?.title ?? '-'}
           <Chip label={`#${job.id}`} size='small' sx={{ marginLeft: '5px' }} />
         </Typography>
         <Typography variant='body2'>
-          <strong>Description:</strong> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Blanditiis vitae provident, deleniti deserunt suscipit, placeat ipsa nostrum tempore.
-          <br />
-          <strong>Status:</strong> {job.status} <br />
-          <strong>Role:</strong> {job.employee.id === talentLayerId ? 'Employee' : 'Employer'}{' '}
-          <br />
-          <strong>Review:</strong> lorem ipsum <br />
+          <strong>Description:</strong> {jobDetails?.about ?? '-'}
+        </Typography>
+        <Typography variant='body2'>
+          <strong>Keywords:</strong> {jobDetails?.keywords ?? '-'}
         </Typography>
         <Typography variant='body2'>
           <strong>Status:</strong> {job.status}

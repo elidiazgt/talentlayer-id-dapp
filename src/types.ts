@@ -16,6 +16,14 @@ export type Job = {
   uri: string;
 };
 
+export type JobDetails = {
+  title: string;
+  about: string;
+  keywords: string;
+  recipient: string;
+  role: string;
+};
+
 export type Review = {
   id: string;
   job: Job;
