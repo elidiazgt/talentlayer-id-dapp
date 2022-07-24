@@ -127,6 +127,7 @@ const CreateJob = () => {
             required
             style={{ width: 500 }}
             value={values.role}
+            onBlur={handleBlur}
             onChange={e => {
               handleChange(e);
               setTouched({ ...touched, role: true });
@@ -146,6 +147,7 @@ const CreateJob = () => {
             required
             style={{ width: 500 }}
             value={values.recipient}
+            onBlur={handleBlur}
             onChange={e => {
               handleChange(e);
               setTouched({ ...touched, recipient: true });
