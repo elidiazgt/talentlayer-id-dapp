@@ -21,7 +21,7 @@ const ProofOfHumanityCheck = () => {
       <Typography sx={{ py: 2, mx: 3, fontSize: 20 }}>
         {isRegisterToPoh
           ? 'Congrats, your wallet is well registered with Proof of Humanity!'
-          : 'You don&apos;t seem to have a Proof of Humanity ID associated with your wallet.'}
+          : `You do not seem to have a Proof of Humanity ID associated with your wallet.`}
       </Typography>
       {isRegisterToPoh && (
         <Grid
