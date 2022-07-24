@@ -14,7 +14,10 @@ const useUserJobs = (): Job[] => {
     return false;
   });
 
-  return userJobs;
+  return userJobs.sort((a, b) => {
+    if (+a.id > +b.id) return -1;
+    return 1;
+  });
 };
 
 export default useUserJobs;

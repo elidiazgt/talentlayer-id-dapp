@@ -15,7 +15,7 @@ const processRequest = async (query: string): Promise<any> => {
 export const getUsers = (): Promise<any> => {
   const query = `
   {
-    users {
+    users(orderBy: id, orderDirection: desc) {
       id
       address
       uri
@@ -27,21 +27,10 @@ export const getUsers = (): Promise<any> => {
   return processRequest(query);
 };
 
-export const getId = (id: string): Promise<any> => {
-  const query = `
-  {
-    id(id: "${id}") {
-      id
-    }
-  }
-  `;
-  return processRequest(query);
-};
-
 export const getJobs = (): Promise<any> => {
   const query = `
   {
-    jobs {
+    jobs(orderBy: id, orderDirection: desc) {
       id
       status
       employer {
@@ -78,6 +67,35 @@ export const getJob = (id: string): Promise<any> => {
   return processRequest(query);
 };
 
+export const getJobsByUser = (userId: string): Promise<any> => {
+  const query = `
+  {
+    jobs(where: { job: "${userId}" }, orderBy: id, orderDirection: desc) {
+      id
+      status
+      employer {
+        id
+        handle
+      }
+      employee {
+        id
+        handle
+      }
+      sender {
+        id
+        handle
+      }
+      recipient {
+        id
+        handle
+      }
+      uri
+    }
+  }
+  `;
+  return processRequest(query);
+};
+
 export const getReviews = (): Promise<any> => {
   const query = `
   {
@@ -92,7 +110,7 @@ export const getReviews = (): Promise<any> => {
 export const getReviewsByJob = (jobId: string): Promise<any> => {
   const query = `
   {
-    reviews(where: { job: "${jobId}" }) {
+    reviews(where: { job: "${jobId}" }, orderBy: id, orderDirection: desc) {
       id
       job {
         id
