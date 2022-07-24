@@ -19,7 +19,7 @@ const JobCard = ({ job }: IProps) => {
   const { talentLayerId, signer } = useContext(TalentLayerContext);
   const { reviews } = useReviewsByJob(job.id);
   const isInitiator: boolean = job.sender.id === talentLayerId;
-  const hasReviewed: boolean = reviews.every(review => {
+  const hasReviewed = !!reviews.find(review => {
     if (review.to.id !== talentLayerId) {
       return true;
     }
@@ -88,7 +88,7 @@ const JobCard = ({ job }: IProps) => {
             Finish Job
           </Button>
         )}
-        {job.status === Status.Finished && hasReviewed && (
+        {job.status === Status.Finished && !hasReviewed && (
           <Button size='small' component={Link} to={`/add-review/${job.id}`}>
             Create a review
           </Button>

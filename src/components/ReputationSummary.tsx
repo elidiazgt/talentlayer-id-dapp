@@ -23,9 +23,7 @@ const ReputationSummary = ({ handle }: { handle: string | undefined }) => {
       </Typography>
 
       {userJobs.map((job, index) => {
-        if(job.id == 11){
-          return <JobCard key={index} job={job} />;
-        }
+        return <JobCard key={index} job={job} />;
       })}
     </Box>
   );
