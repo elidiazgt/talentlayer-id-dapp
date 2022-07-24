@@ -20,11 +20,7 @@ const MintHandleSuccess = () => {
         style={{ minHeight: '30vh' }}>
         <Card sx={{ width: '30%', margin: '10px' }}>
           <CardContent sx={{ textAlign: 'center', minHeight: '15vh', pt: '5vh' }}>
-            <Button
-              component={Link}
-              to={`/admin-center/${handle}`}
-              variant='contained'
-              size='large'>
+            <Button component={Link} to={`/admin-center/${handle}`} variant='outlined' size='large'>
               Access Admin Center
             </Button>
           </CardContent>

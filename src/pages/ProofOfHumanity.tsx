@@ -25,7 +25,7 @@ const ProofOfHumanity = () => {
               Users with Proof of Humanity verification are more trusted by job creators and are
               able to perform expedited account recoveries.
             </Typography>
-            <Button component={Link} to='/proof-of-humanity-check' variant='contained' size='large'>
+            <Button component={Link} to='/proof-of-humanity-check' variant='outlined' size='large'>
               Verify my ID
             </Button>
           </CardContent>
@@ -36,7 +36,7 @@ const ProofOfHumanity = () => {
               Users without Proof of Humanity verification are able to participate in all aspects of
               TalentLayer except for expedited account recoveries.
             </Typography>
-            <Button component={Link} to='/choose-handle' variant='contained' size='large'>
+            <Button component={Link} to='/choose-handle' variant='outlined' size='large'>
               Skip Verification
             </Button>
           </CardContent>

@@ -35,7 +35,7 @@ const Home = () => {
               <Button
                 component={Link}
                 to={`/admin-center/${talentLayerHandle}`}
-                variant='contained'
+                variant='outlined'
                 size='large'>
                 Access Admin Center
               </Button>
@@ -47,7 +47,7 @@ const Home = () => {
               <Typography sx={{ py: 3, mx: 3, fontSize: 18 }}>
                 Get started by creating your TalentLayer ID.
               </Typography>
-              <Button component={Link} to='/proof-of-humanity' variant='contained' size='large'>
+              <Button component={Link} to='/proof-of-humanity' variant='outlined' size='large'>
                 Create ID
               </Button>
             </CardContent>
@@ -58,7 +58,7 @@ const Home = () => {
             <Typography sx={{ py: 3, mx: 3, fontSize: 18 }}>
               View the verified reviews of someone you want to work with.
             </Typography>
-            <Button variant='contained' size='large'>
+            <Button variant='outlined' size='large'>
               Search Reputations
             </Button>
           </CardContent>
@@ -68,7 +68,7 @@ const Home = () => {
             <Typography sx={{ py: 3, mx: 3, fontSize: 18 }}>
               Lose your wallet? Recover your TalentLayer ID into a new wallet.{' '}
             </Typography>
-            <Button variant='contained' size='large'>
+            <Button variant='outlined' size='large'>
               Recover my ID
             </Button>
           </CardContent>

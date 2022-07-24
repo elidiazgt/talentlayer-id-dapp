@@ -45,11 +45,7 @@ const MintHandle = () => {
         <Card sx={{ width: '30%', margin: '10px' }}>
           <CardContent sx={{ textAlign: 'center' }}>
             <Typography sx={{ py: 3, mx: 3, fontSize: 30 }}>{handle}</Typography>
-            <LoadingButton
-              onClick={mintHandle}
-              variant='contained'
-              size='large'
-              loading={isMinting}>
+            <LoadingButton onClick={mintHandle} variant='outlined' size='large' loading={isMinting}>
               {isMinting ? 'Minting...' : 'Mint Your TalentLayer ID'}
             </LoadingButton>
             {error && (

@@ -28,7 +28,7 @@ const ProofOfHumanityCheck = () => {
           style={{ minHeight: '30vh' }}>
           <Card sx={{ margin: '10px' }}>
             <CardContent sx={{ textAlign: 'center', minHeight: '15vh', pt: '5vh' }}>
-              <Button component={Link} to='/choose-handle' variant='contained' size='large'>
+              <Button component={Link} to='/choose-handle' variant='outlined' size='large'>
                 Create your profile
               </Button>
             </CardContent>
@@ -49,7 +49,7 @@ const ProofOfHumanityCheck = () => {
                 component='a'
                 target='_blank'
                 href='https://app.proofofhumanity.id'
-                variant='contained'
+                variant='outlined'
                 size='large'>
                 Create a POH ID
               </Button>
@@ -57,14 +57,14 @@ const ProofOfHumanityCheck = () => {
           </Card>
           <Card sx={{ width: '30%', margin: '10px' }}>
             <CardContent sx={{ textAlign: 'center', minHeight: '15vh', pt: '5vh' }}>
-              <Button variant='contained' size='large'>
+              <Button variant='outlined' size='large'>
                 Check Again
               </Button>
             </CardContent>
           </Card>
           <Card sx={{ width: '30%', margin: '10px' }}>
             <CardContent sx={{ textAlign: 'center', minHeight: '15vh', pt: '5vh' }}>
-              <Button variant='contained' size='large'>
+              <Button variant='outlined' size='large'>
                 Progress with No POH ID
               </Button>
             </CardContent>
