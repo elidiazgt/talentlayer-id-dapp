@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { JobDetails } from '../types';
+import { ReviewDetails } from '../types';
 import { isValidHttpsUrl } from '../utils';
 
-const useJobDetails = (uri: string): JobDetails | null => {
-  const [jobDetails, setJobDetails] = useState<JobDetails | null>(null);
+const useReviewDetails = (uri: string): ReviewDetails | null => {
+  const [reviewDetails, setReviewDetails] = useState<ReviewDetails | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,9 +13,9 @@ const useJobDetails = (uri: string): JobDetails | null => {
         }
 
         const response = await fetch(uri);
-        const data: JobDetails = await response.json();
+        const data: ReviewDetails = await response.json();
         if (data) {
-          setJobDetails(data);
+          setReviewDetails(data);
         }
       } catch (err: any) {
         // eslint-disable-next-line no-console
@@ -25,7 +25,7 @@ const useJobDetails = (uri: string): JobDetails | null => {
     fetchData();
   }, [uri]);
 
-  return jobDetails;
+  return reviewDetails;
 };
 
-export default useJobDetails;
+export default useReviewDetails;

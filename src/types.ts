@@ -31,6 +31,11 @@ export type Review = {
   uri: string;
 };
 
+export type ReviewDetails = {
+  content: string;
+  rating: string;
+};
+
 export enum Status {
   Initialized = 'Initialized',
   Confirmed = 'Confirmed',
