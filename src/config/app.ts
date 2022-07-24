@@ -25,9 +25,9 @@ const local = {
 const gnosis = {
   networkId: Network.GNOSIS,
   rpcUrl: `https://rpc.ankr.com/gnosis`,
-  talentLayerIdAddress: '0x25DFc905884be839eCF2dE0e760C28BA6B8070e6',
-  jobRegistryAddress: '0x4aE6B4edD82c75bbA8e29B44aD4829708D5cEc8e',
-  talentLayerReviewAddress: '0x690113a1965781e272E30DE287a0bbBd62f63269',
+  talentLayerIdAddress: '0xfC36a323D56A041011b5c2b537EA809e2AB7C8b7',
+  jobRegistryAddress: '0xa0ba381942EE16CAbf901f831A8C5B722C907263',
+  talentLayerReviewAddress: '0x67E3Aa6F076445197DfF91e0E776588FE09951aD',
   proofOfHumanityAddress: '0x286cAf49975bACc6D0E80b52c8464fb1108F80fd',
 };
 
