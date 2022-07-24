@@ -73,12 +73,12 @@ const JobCard = ({ job }: IProps) => {
           {job.employee.id === talentLayerId ? job.employer.handle : job.employee.handle} <br />
         </Typography>
         {reviews.length > 0 && <strong>Reviews:</strong>}
-        {reviews.map(review => {
-          return <ReviewCard review={review} />;
+        {reviews.map((review, index) => {
+          return <ReviewCard key={index} review={review} />;
         })}
       </CardContent>
       <CardActions>
-        {!isInitiator && job.status === Status.Intialized && (
+        {!isInitiator && job.status === Status.Initialized && (
           <Button size='small' onClick={handleConfirmJob}>
             Confirm Job
           </Button>
