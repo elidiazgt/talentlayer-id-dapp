@@ -81,7 +81,7 @@ const Home = () => {
             </Typography>
             <Button
               component={Link}
-              to={`/search-reputations-center`}
+              to='/search-reputations-center'
               variant='outlined'
               size='large'>
               Search Reputations
@@ -98,7 +98,7 @@ const Home = () => {
             />
             <Typography sx={{ pt: 2, pb: 1, fontSize: 28 }}>Recover ID</Typography>
             <Typography sx={{ pb: 2, fontSize: 14 }}>
-              Recover your ID and associate it with a new address.
+              Recover your TalentLayer ID and associate it with a new address.
             </Typography>
             <Button variant='outlined' size='large'>
               Recover my ID
