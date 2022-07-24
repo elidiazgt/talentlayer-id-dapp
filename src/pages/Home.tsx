@@ -35,9 +35,9 @@ const Home = () => {
                 image='/pexels-daniel-xavier-1239291.jpeg'
                 title='Admin Center'
               />
-              <Typography sx={{ pt: 2, pb: 1, fontSize: 28 }}>Access Jobs</Typography>
+              <Typography sx={{ pt: 2, pb: 1, fontSize: 28 }}>My Jobs &amp; Reputation</Typography>
               <Typography sx={{ pb: 2, fontSize: 14 }}>
-                Post and complete jobs as a either a client or freelancer.
+                Post and complete jobs as either a client or freelancer and view my reputation.
               </Typography>
               <Button
                 component={Link}
@@ -75,7 +75,7 @@ const Home = () => {
               image='/pexels-ketut-subiyanto-4126739.jpeg'
               title='Search Reputations'
             />
-            <Typography sx={{ pt: 2, pb: 1, fontSize: 28 }}>Search Reputations</Typography>
+            <Typography sx={{ pt: 2, pb: 1, fontSize: 28 }}>Clients and Freelancers</Typography>
             <Typography sx={{ pb: 2, fontSize: 14 }}>
               View the verified reviews of someone you want to work with.
             </Typography>
