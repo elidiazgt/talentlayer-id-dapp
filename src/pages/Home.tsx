@@ -100,7 +100,10 @@ const Home = () => {
             <Typography sx={{ pb: 2, fontSize: 14 }}>
               Recover your TalentLayer ID and associate it with a new address.
             </Typography>
-            <Button variant='outlined' size='large'>
+            <Button 
+            component={Link}
+            to='/recover-id'
+            variant='outlined' size='large'>
               Recover my ID
             </Button>
           </CardContent>

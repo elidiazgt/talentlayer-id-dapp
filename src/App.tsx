@@ -18,6 +18,7 @@ import {
   ProofOfHumanityCheck,
   SearchReputationsCenter,
 } from './pages';
+import RecoverId from './pages/RecoverId';
 
 const App = () => {
   return (
@@ -39,6 +40,8 @@ const App = () => {
               <Route path='/add-review/:jobId' element={<AddReview />} />
               <Route path='/add-review-success' element={<AddReviewSuccess />} />
               <Route path='/search-reputations-center' element={<SearchReputationsCenter />} />
+              <Route path='/recover-id' element={<RecoverId />} />
+
             </Routes>
           </Container>
         </Router>

@@ -10,3 +10,6 @@ export { default as ReputationSummary } from './ReputationSummary';
 // Clients & Freelancers
 export { default as SearchReputationsActions } from './SearchReputationsActions';
 export { default as SearchReputations } from './SearchReputations';
+
+// Recover Id
+export { default as RecoverComponent } from './RecoverComponent'
