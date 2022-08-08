@@ -3,30 +3,15 @@ import { useFormik } from 'formik';
 import { useContext } from 'react';
 
 
-const RecoverComponent = () => {
+const RecoverComponentResult = () => {
 let wallet = 'xxxxx'
 
     return <div>
-        <h1>Recover my Id</h1>
+        <h1>Recover Your TalentLayer ID</h1>
         <form >
         <Stack spacing={2} mt={2}>
-            <TextField
-
-                label='Your TalentLayer ID Handle'
-            />
-            <TextField
-
-label='Your Original Wallet'
-/>
-<TextField
-
-                label='Your Emergency Recovery Password'
-            />
             <div>
-Your TalentLayer ID will be transfered to the wallet you currently have connected upon initiation. 
-Does this look correct?
-[{wallet}]
-
+            Your account has been successfully recovered.
             </div>
             <Stack direction='row' justifyContent='center'>
                 <Button
@@ -34,7 +19,7 @@ Does this look correct?
                     type='submit'
                     size='large'
                 >
-                    Initiate Recovery
+                    Go to Admin Center
                 </Button>
             </Stack>
         </Stack>
@@ -45,4 +30,4 @@ Does this look correct?
 
 
 
-export default RecoverComponent;
+export default RecoverComponentResult;

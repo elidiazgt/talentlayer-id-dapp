@@ -13,3 +13,6 @@ export { default as SearchReputations } from './SearchReputations';
 
 // Recover Id
 export { default as RecoverComponent } from './RecoverComponent'
+export { default as RecoverComponentNotice } from './RecoverComponentNotice'
+export { default as RecoverComponentResult } from './RecoverComponentResult'
+
