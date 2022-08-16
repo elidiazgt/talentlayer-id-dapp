@@ -1,15 +1,17 @@
 // import { useParams } from 'react-router-dom';
 import { Box, Grid } from '@mui/material';
-import { RecoverComponent } from '../components';
-import { RecoverComponentNotice } from '../components';
-import { RecoverComponentResult } from '../components';
 import { useContext } from 'react';
 import TalentLayerContext from '../context/talentLayer';
 
-const { talentLayerId, talentLayerHandle } = useContext(TalentLayerContext);
+import { RecoverComponent } from '../components';
+import { RecoverComponentNotice } from '../components';
+import { RecoverComponentResult } from '../components';
+
 
 
 const RecoverId = () => {
+  const { talentLayerId, talentLayerHandle } = useContext(TalentLayerContext);
+
   // const { handle } = useParams<{ handle?: string }>();
   const isConnected = talentLayerId && talentLayerId !== '0';
   let steps = 0;

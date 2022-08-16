@@ -1,6 +1,5 @@
 import { Button, Stack, TextField } from '@mui/material';
 import { useFormik } from 'formik';
-import { useContext } from 'react';
 
 const RecoverComponent = () => {
     let wallet = 'xxxxx'
